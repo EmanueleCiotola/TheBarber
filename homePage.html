@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon per i vari dispositivi (anche icone sito aggiunto a desktop) -->
+
+    
+    <link href="style.css" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/Comfortaa.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <title>TheBarber</title>
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <header>The Barber</header>
+
+    <main id="homePage">
+        <section id="landingSection">
+            <button class="secondaryButton roundedButton" onclick="openPopup(accountSettings);">
+                <img src="assets/icons/profile-user.svg" alt="Profilo Utente" draggable="false">
+            </button>
+            <h2>Ciao Luca</h2>
+            <p>Effettua ora una prenotazione<br>con fino a 7 giorni di anticipo!</p>
+            <button id="bookBtn" class="primaryButton" onclick="">Prenota</button>
+        </section>
+        <section id="commentsSection">
+            <h2>Top comments</h2>
+            <div id="commentsSpace">
+                <article class="commentCard">
+                    <div class="commentHeader">
+                        <img src="assets/images/fotoProfiloMicheleNastro.webp" alt="Foto profilo Michele Nastro" class="commentImagePic" draggable="false">
+                        <div class="commentTitle">
+                            <h3>Michele Nastro</h3>
+                            <img src="assets/icons/commentStars.svg" alt="Valutazione 5 stelle" class="comment__stars" draggable="false">
+                        </div>
+                    </div>
+                    <p>“Puntuali, veloci, precisi e amichevoli! Finalmente.”</p>
+                </article>
+                <article class="commentCard">
+                    <div class="commentHeader">
+                        <img src="assets/images/fotoProfiloFrancoRippa.webp" alt="Foto profilo Franco Rippa" class="commentImagePic" draggable="false">
+                        <div class="commentTitle">
+                            <h3>Franco Rippa</h3>
+                            <img src="assets/icons/commentStars.svg" alt="Valutazione 5 stelle" class="comment__stars" draggable="false">
+                        </div>
+                    </div>
+                    <p>“Professionali e gentili. Da provare assolutamente.”</p>
+                </article>
+                <article class="commentCard">
+                    <div class="commentHeader">
+                        <img src="assets/images/fotoProfiloMauroStrenzi.webp" alt="Foto profilo Mauro Strenzi" class="commentImagePic" draggable="false">
+                        <div class="commentTitle">
+                            <h3>Mauro Strenzi</h3>
+                            <img src="assets/icons/commentStars.svg" alt="Valutazione 5 stelle" class="comment__stars" draggable="false">
+                        </div>
+                    </div>
+                    <p>“Mi trovo benissimo ormai da anni, sono i migliori!”</p>
+                </article>
+            </div>
+        </section>
+        <section id="faqSection">
+            <h2>FAQ</h2>
+            <article class="selector">
+                <div class="reducedSelectorSpace">
+                    <p>Posso cancellare una prenotazione poco prima dell’appuntamento?</p>
+                    <img src="assets/icons/arrow-expand.svg" alt="Espandi" class="selectorArrow" draggable="false">
+                </div>
+                <div class="expandedSelectorSpace">
+                    <p>Sì, è possibile cancellare le prenotazioni anche poco prima dell’appuntamento. Atteggiamenti scorretti ripetuti nel tempo, però, possono comportare il blocco dell’account e provvedimenti legali.</p>
+                </div>
+            </article>
+            <article class="selector">
+                <div class="reducedSelectorSpace">
+                    <p>Come vengono trattati i miei dati?</p>
+                    <img src="assets/icons/arrow-expand.svg" alt="Espandi" class="selectorArrow" draggable="false">
+                </div>
+                <div class="expandedSelectorSpace">
+                    <p>I tuoi dati non verranno condivisi con terzi, saranno usati al solo fine identificativo.</p>
+                </div>
+            </article>
+            <article class="selector">
+                <div class="reducedSelectorSpace">
+                    <p>Quanto tempo serve approssimativamente un taglio di capelli?</p>
+                    <img src="assets/icons/arrow-expand.svg" alt="Espandi" class="selectorArrow" draggable="false">
+                </div>
+                <div class="expandedSelectorSpace">
+                    <p>Il tempo, chiaramente, varia a seconda del taglio. Una stima media potrebbe essere mezz'ora.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>©&nbsp;2024&nbsp;Emanuele&nbsp;Ciotola. Tutti&nbsp;i&nbsp;diritti&nbsp;riservati.</footer>
+
+    <div id="popupsSpace">
+        <div id="accountSettings" class="popup">
+            <div class="popupTitle">
+                <h2>Account</h2>
+                <button class="secondaryButton" onclick="closePopup(accountSettings);">
+                    <img src="assets/icons/close.svg" alt="Chiudi" draggable="false">
+                </button>
+            </div>
+            <div id="currentUser">
+                <p id="userName">Luca Tammaro</p>
+                <p id="userEmail">luckyTammy@gmail.com</p>
+            </div>
+            <button class="primaryButton" onclick="logoutUser();">Esci dall'account</button>
+            <button class="tertiaryButton" onclick="switchPopup(accountSettings, deleteAccount);">Elimina account</button>
+        </div>
+        <div id="deleteAccount" class="popup">
+            <h2>Elimina account</h2>
+            <p>Sei sicuro di voler eliminare il tuo<br>account? Ci mancherai, Luca!</p>
+            <div class="popupActions">
+                <button class="secondaryButton" onclick="deleteUser();">Elimina</button>
+                <button class="primaryButton" onclick="closePopup(deleteAccount);">Annulla</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="firebase-config.js" type="module"></script>
+    <script src="firebaseAccountSettings.js" type="module"></script>
+</body>
+</html>
