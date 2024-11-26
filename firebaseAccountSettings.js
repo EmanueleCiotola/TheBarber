@@ -1,5 +1,6 @@
 import { auth } from './firebase-config.js';
 
+// Esegui il logout
 function logoutUser() {
     auth.signOut().then(() => {
         window.location.href = 'signInPage.html'; // Reindirizza alla pagina signInPage
@@ -9,6 +10,7 @@ function logoutUser() {
     });
 }
 
+// Elimina l'account
 function deleteUser() {
     auth.currentUser.delete().then(() => {
         window.location.href = 'signInPage.html'; // Reindirizza alla pagina di login o homepage
