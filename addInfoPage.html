@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon per i vari dispositivi (anche icone sito aggiunto a desktop) -->
+
+    
+    <link href="style.css" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/Comfortaa.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <title>TheBarber</title>
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <header>The Barber</header>
+
+    <main id="addInfoPage">
+        <img src="assets/icons/addInfo.svg" alt="Icona info">
+        <h2>Aggiunta info</h2>
+        <form>
+            <input type="text" id="name" placeholder="Il tuo nome..." required>
+            <input type="text" id="surname" placeholder="Il tuo cognome..." required>
+            <button type="submit" class="primaryButton" onclick="addInfo(event);">Continua</button>
+        </form>
+    </main>
+
+    <footer>©&nbsp;2024&nbsp;Emanuele&nbsp;Ciotola. Tutti&nbsp;i&nbsp;diritti&nbsp;riservati.</footer>
+</body>
+<script src="firebase-config.js" type="module"></script>
+<script src="firebaseAccountSettings.js" type="module"></script>
+</html>

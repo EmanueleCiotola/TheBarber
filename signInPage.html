@@ -14,25 +14,36 @@
     <meta name="robots" content="noindex">
 </head>
 <body>
-    <img src="assets/icons/profile-user.svg" alt="Icona utente">
-    <h1>Registrazione</h1>
-    <form id="registerForm">
-        <input type="email" id="email" autocomplete="email" placeholder="La tua email..." required>
-        <div class="passwordInput">
-            <input type="password" id="password" autocomplete="new-password" placeholder="La tua password..." required>
-            <button type="button" id="toggleShowPassword" onclick="togglePasswordVisibility('password', this);">
-                <img src="assets/icons/showPassword.svg" alt="Mostra password" draggable="false">
-            </button>
-        </div>
-        <div class="passwordInput">
-            <input type="password" id="confirmPassword" autocomplete="current-password" placeholder="Ripeti la password..." required>
-            <button type="button" id="toggleShowConfirmPassword" onclick="togglePasswordVisibility('confirmPassword', this);">
-                <img src="assets/icons/showPassword.svg" alt="Mostra password" draggable="false">
-            </button>
-        </div>
-        <button type="submit" onclick="registerUser(event);">Continua</button>
-    </form>
-    <p>Hai giù un account?<button class="tertiaryButton" onclick="window.location.href = 'logInPage.html'">Accedi</button></p>
+    <header>The Barber</header>
+
+    <main class="signIn-logIn">
+        <section class="signIn-logIn__Section">
+            <img class="signIn-logIn__icon" src="assets/icons/profile-user.svg" alt="Icona utente">
+            <h2>Registrazione</h2>
+            <form>
+                <input type="email" id="email" autocomplete="off" placeholder="La tua email..." required>
+                <div class="passwordInput">
+                    <input type="password" id="password" autocomplete="new-password" placeholder="La tua password..." required>
+                    <button type="button" id="toggleShowPassword" class="toogleShowPassword" onclick="togglePasswordVisibility('password', this);">
+                        <img src="assets/icons/showPassword.svg" alt="Mostra password" draggable="false">
+                    </button>
+                </div>
+                <div class="passwordInput">
+                    <input type="password" id="confirmPassword" autocomplete="current-password" placeholder="Ripeti la password..." required>
+                    <button type="button" id="toggleShowConfirmPassword" class="toogleShowPassword" onclick="togglePasswordVisibility('confirmPassword', this);">
+                        <img src="assets/icons/showPassword.svg" alt="Mostra password" draggable="false">
+                    </button>
+                </div>
+                <button type="submit" class="primaryButton" onclick="registerUser(event);">Continua</button>
+            </form>
+        </section>
+        <section class="signIn-logIn__Section switchSign-log">
+            <p>Hai già un account?</p>
+            <button class="tertiaryButton" onclick="window.location.href = 'logInPage.html'">Accedi</button>
+        </section>
+    </main>
+
+    <footer>©&nbsp;2024&nbsp;Emanuele&nbsp;Ciotola. Tutti&nbsp;i&nbsp;diritti&nbsp;riservati.</footer>
 </body>
 <script src="firebase-config.js" type="module"></script>
 <script src="firebaseSignIn.js" type="module"></script>

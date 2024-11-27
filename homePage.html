@@ -21,9 +21,9 @@
             <button class="secondaryButton roundedButton" onclick="openPopup(accountSettings);">
                 <img src="assets/icons/profile-user.svg" alt="Profilo Utente" draggable="false">
             </button>
-            <h2>Ciao Luca</h2>
+            <h2 id="titoloNomeUtente">Benvenuto</h2>
             <p>Effettua ora una prenotazione<br>con fino a 7 giorni di anticipo!</p>
-            <button id="bookBtn" class="primaryButton" onclick="">Prenota</button>
+            <button id="bookBtn" class="primaryButton" onclick="window.location.href = 'addInfoPage.html';">Prenota</button>
         </section>
         <section id="commentsSection">
             <h2>Top comments</h2>
@@ -103,8 +103,8 @@
                 </button>
             </div>
             <div id="currentUser">
-                <p id="userName">Luca Tammaro</p>
-                <p id="userEmail">luckyTammy@gmail.com</p>
+                <p id="userName">Caricamento...</p>
+                <p id="userEmail">Caricamento...</p>
             </div>
             <button class="primaryButton" onclick="logoutUser();">Esci dall'account</button>
             <button class="tertiaryButton" onclick="switchPopup(accountSettings, deleteAccount);">Elimina account</button>

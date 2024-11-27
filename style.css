@@ -9,6 +9,7 @@
     --popupColor: #0e1417;
     --disabledTextColor: rgba(236, 241, 243, .5);
     --transizione: cubic-bezier(0.3, 0, 0.25, 1);
+    --xxsSpace: .08rem;
     --xsSpace: .3rem;
     --sSpace: .5rem;
     --mSpace: 1rem;
@@ -19,22 +20,25 @@
     --brdRadius: .8rem;
 }
 
-@font-face { font-family: myFont; src: url("assets/fonts/Comfortaa.woff2"); font-display: swap; }
+@font-face { font-family: myFont; src: url("assets/fonts/Comfortaa.woff2") format('woff2'); font-display: swap; }
 
 * { padding: 0; margin: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 body, html {
     background-color: var(--bgColor);
     color: var(--textColor);
+    scroll-behavior: auto;
+    text-align: center;
+}
+body, html, button, input {
     font-family: "myFont", Helvetica;
     font-size: calc(14px + .390625vw);
     letter-spacing: .05rem;
     word-spacing: .1rem;
     line-height: 1.6rem;
-    scroll-behavior: auto;
-    text-align: center;
 }
 ::selection { background-color: var(--accentColor); color: var(--bgColor); }
+::placeholder { color: var(--disabledTextColor); }
 
 h1, header { font-size: calc(40px + .390625vw); line-height: 2.6rem; font-weight: bold; }
 h2 { font-size: calc(18px + .390625vw); font-weight: bold; }
@@ -44,11 +48,10 @@ header { margin: var(--xlSpace) 0 var(--xxlSpace) 0; }
 footer { margin: var(--xxlSpace) var(--xlSpace) var(--xlSpace) var(--xlSpace); }
 
 button {
-    width: 6rem;
-    height: 2rem;
+    width: 7rem;
+    height: 2.5rem;
     border-radius: var(--brdRadius);
-    font-size: calc(14px + .390625vw);
-    font-weight: bold;
+    font-weight: bolder; /* TODO */
     border: none;
     cursor: pointer;
     transition: transform .05s var(--transizione), filter .1s var(--transizione);
@@ -94,6 +97,18 @@ button:active { transform: scale(.95); }
 .selector.opened {
     .expandedSelectorSpace { max-height: 500px; visibility: visible; padding-bottom: var(--mSpace); }
     .selectorArrow { transform: rotate(-180deg); }
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+    background-color: var(--secondaryColor);
+    border-radius: var(--brdRadius);
+    height: 2.5rem;
+    width: 100%;
+    padding: 0 var(--mSpace);
+    border: none;
+    outline: none;
+    caret-color: var(--accentColor);
+    color: var(--textColor);
 }
 
 img { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -o-user-select: none; user-select: none; }
@@ -150,6 +165,51 @@ img { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: non
 *::-webkit-scrollbar-thumb { background: var(--secondaryColor); border-radius: var(--brdRadius); border: 3px solid var(--bgColor); }
 /* Fine scrollbar */
 
+.signIn-logIn { margin: 0 auto; max-width: max-content; }
+.signIn-logIn__Section {
+    background-color: var(--cardColor);
+    border-radius: var(--brdRadius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--lSpace);
+    .signIn-logIn__icon { width: 1.5rem; height: 1.5rem; margin-bottom: var(--sSpace); }
+    h2 { margin: var(--sSpace) 0 var(--lSpace) 0; }
+    form { display: flex; flex-direction: column; justify-content: center; align-items: center;
+        .tertiaryButton { margin-top: var(--xsSpace); }
+    }
+    .passwordInput {
+        display: flex;
+        background-color: var(--secondaryColor);
+        border-radius: var(--brdRadius);
+        width: 18rem;
+        margin-top: var(--mSpace);
+        input {
+            border-radius: var(--brdRadius) 0 0 var(--brdRadius);
+            background-color: transparent;
+            padding-right: 0;
+        }
+        .toogleShowPassword {
+            width: 2.5rem;
+            border-radius: 0 var(--brdRadius) var(--brdRadius) 0;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img { width: 1rem; height: 1rem; padding-bottom: var(--xxsSpace); }
+        }
+    }
+    button[type="submit"] { margin-top: var(--lSpace); }
+}
+.switchSign-log {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    margin-top: var(--mSpace);
+    padding: var(--mSpace);
+}
+/* Fine signInPage e logInPage */
+
 #landingSection {
     h2 { margin: var(--mSpace) 0 var(--lSpace) 0; }
     #bookBtn { margin-top: var(--xlSpace); }
@@ -183,6 +243,18 @@ img { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: non
 }
 /* Fine homePage */
 
+#addInfoPage {
+    margin: 0 auto;
+    max-width: 21rem;
+    background-color: var(--cardColor);
+    border-radius: var(--brdRadius);
+    padding: var(--lSpace);
+    img { width: 1.5rem; height: 1.5rem; margin-bottom: var(--sSpace); }
+    h2 { margin: var(--sSpace) 0 var(--lSpace) 0; }
+    input:nth-child(2) { margin: var(--mSpace) 0 var(--lSpace) 0; }
+}
+/* Fine addInfoPage */
+
 #accountSettings {
     width: 65vw;
     max-width: 23rem;
@@ -194,7 +266,6 @@ img { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: non
 }
 #deleteAccount {
     width: auto;
-    /* max-width: 20rem; */
     p { margin: var(--mSpace) 0 var(--lSpace) 0; text-wrap: balance; }
 }
 /* Fine popups */
